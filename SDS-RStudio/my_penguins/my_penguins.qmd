@@ -1,0 +1,27 @@
+---
+title: "my_penguins"
+author: "Sanjana Sunkara"
+---
+
+## Quarto
+
+```{r}
+library(tidyverse)
+library(palmerpenguins)
+
+
+penguins |>
+  group_by(species) |> 
+  summarise(
+    mean_length = mean(bill_length_mm, na.rm = TRUE),
+  )
+```
+
+## Plot
+
+```{r}
+penguins |>
+  ggplot(mapping = aes(x = sex, y = flipper_length_mm, fill = sex)) +
+  geom_col() +
+  labs(x = "Sex", y = "Flipper Length")
+```
